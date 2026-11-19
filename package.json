@@ -1,0 +1,18 @@
+{
+  "name": "ossma",
+  "version": "1.0.0",
+  "description": "Ondo State Signage and Mobile Advertisement - sticker verification and vehicle registration",
+  "main": "server.js",
+  "scripts": {
+    "seed": "node seed.js --test --force",
+    "seed:prod": "node seed.js --count 10005 --force",
+    "seed:add": "node seed.js --add",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.0"
+  },
+  "engines": { "node": ">=18" }
+}

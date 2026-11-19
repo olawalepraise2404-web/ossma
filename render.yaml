@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: ossma
+    runtime: node
+    plan: starter            # a paid plan is required for the persistent disk below
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /verify
+    disk:
+      name: ossma-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DB_PATH
+        value: /var/data/ossma.db
+      - key: SEED_ON_EMPTY
+        value: test            # change to 10005 when you are ready to go live
+      - key: ADMIN_KEY
+        generateValue: true
+      - key: BASE_URL
+        sync: false            # you will be asked for this, e.g. https://ossma.com
